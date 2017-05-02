@@ -1,6 +1,6 @@
 #localuser modification
-set-localuser -name administrator -Password $pwd -AccountNeverExpires
-Set-localgroup -name administrators $username
+$user = set-localuser -name administrator -Password $pwd -AccountNeverExpires
+add-localgroupmember -group administrators -member $user
 
 #join domain
 Add-Computer -DomainName $domain -Credential $credential
